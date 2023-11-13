@@ -12,3 +12,18 @@
     align-items: center;
     height: 100vh;
 }
+
+.fade-element {
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    display: none;
+}
+
+.square-button {
+    width: 50px; /* 正方形の幅を指定 */
+    height: 100px; /* 正方形の高さを指定（同じ値を使用） */
+    text-align: center; /* ボタン内のテキストを中央寄せにする */
+    line-height: 50px; /* ボタン内のテキストの縦方向の中央揃えを設定 */
+    border-radius: 0; /* 角丸を無効にする */
+}
