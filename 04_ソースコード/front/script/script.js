@@ -6,15 +6,15 @@ var app = new Vue({
             title:"北海道・東北",
             sample:["北海道","青森県","秋田県","長野県","岩手県"],
             isFaded: true,
-            buttonColor: "btn-primary",
+            buttonColor: "#99CCFF",
           },
           kanto:{
             title:"関東",
             sample:["茨城県","栃木県","群馬県","埼玉県","千葉県"],
             isFaded: true,
-            buttonColor: "btn-success",
+            buttonColor: "#99CC99",
           },
-        }
+        },
     },
     computed: {
         fadeClasses() {
