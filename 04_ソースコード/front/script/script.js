@@ -8,7 +8,7 @@ var app = new Vue({
       kinki: { title: "近畿", prefectures: [], isFaded: true, buttonColor: "#FFCC66" },
       tyugoku: { title: "中国", prefectures: [], isFaded: true, buttonColor: "#FF9966" },
       shikoku: { title: "四国", prefectures: [], isFaded: true, buttonColor: "#CC6666" },
-      kyusyu: { title: "九州", prefectures: [], isFaded: true, buttonColor: "#FFABCE" }
+      kyusyu: { title: "九州", prefectures: [], isFaded: true, buttonColor: "#FF99FF" }
     },
     titleArray:['hokkaido','kanto','tyubu','kinki','tyugoku','shikoku','kyusyu'],
   },
