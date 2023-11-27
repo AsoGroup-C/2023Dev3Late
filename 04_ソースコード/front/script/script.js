@@ -8,9 +8,10 @@ var app = new Vue({
       kinki: { title: "近畿", prefectures: [], isFaded: true, buttonColor: "#FFCC66" },
       tyugoku: { title: "中国", prefectures: [], isFaded: true, buttonColor: "#FF9966" },
       shikoku: { title: "四国", prefectures: [], isFaded: true, buttonColor: "#CC6666" },
-      kyusyu: { title: "九州", prefectures: [], isFaded: true, buttonColor: "#FF99FF" }
+      kyusyu: { title: "九州", prefectures: [], isFaded: true, buttonColor: "#CC99CC" }
     },
-    titleArray:['hokkaido','kanto','tyubu','kinki','tyugoku','shikoku','kyusyu'],
+    titleArray: ['hokkaido', 'kanto', 'tyubu', 'kinki', 'tyugoku', 'shikoku', 'kyusyu'],
+    selectedArray: [],
   },
   computed: {
     fadeClasses() {
@@ -32,26 +33,21 @@ var app = new Vue({
         throw error;
       }
     },
-    setPrefecturesData(prefecturesData) {
-      Object.keys(prefecturesData).forEach((regionKey) => {
-        const regionData = prefecturesData[regionKey];
-        const prefecturesArray = JSON.parse(regionData.prefectures);
+    setRegionData(regionKey, prefecturesArray) {
+      if (!this.regions[regionKey]) {
+        this.$set(this.regions, regionKey, {});
+      }
 
-        // 未定義の場合は新しいオブジェクトを作成する
-        if (!this.regions[this.titleArray[regionKey]]) {
-          this.$set(this.regions, regionKey, {});
-          console.log(this.titleArray[regionKey]);
-        }
-
-        // データの設定
-        this.$set(this.regions[this.titleArray[regionKey]], 'prefectures', prefecturesArray.map(item => item.prefecture_name));
-        console.log(this.regions[this.titleArray[regionKey]]);
-      });
+      this.$set(this.regions[regionKey], 'prefectures', prefecturesArray.map(item => ({ name: item.prefecture_name, flg: true })));
     },
     async fetchPrefectures() {
       try {
         const prefecturesData = await this.fetchPrefecturesData();
-        this.setPrefecturesData(prefecturesData);
+        Object.keys(prefecturesData).forEach((regionKey) => {
+          const regionData = prefecturesData[regionKey];
+          const prefecturesArray = JSON.parse(regionData.prefectures);
+          this.setRegionData(this.titleArray[regionKey], prefecturesArray);
+        });
       } catch (error) {
         console.error("データの設定に失敗しました。", error);
       }
@@ -60,9 +56,16 @@ var app = new Vue({
       window.location.href = `./${url}.html`;
     },
     toggleFade(regionKey) {
-      // リアクティブなプロパティの切り替え
       this.$set(this.regions[regionKey], 'isFaded', !this.regions[regionKey]?.isFaded);
     },
+    select_on(key,item) {
+      this.regions[key].prefectures[item].flg = !this.regions[key].prefectures[item].flg;
+      this.selectedArray.push(this.regions[key].prefectures[item].name);
+    },
+    select_off(key,item) {
+      this.regions[key].prefectures[item].flg = !this.regions[key].prefectures[item].flg;
+      this.selectedArray = this.selectedArray.filter((str) => str !== this.regions[key].prefectures[item].name);
+    }
   },
   created() {
     this.fetchPrefectures();

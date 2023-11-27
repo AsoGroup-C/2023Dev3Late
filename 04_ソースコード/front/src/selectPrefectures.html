@@ -22,8 +22,14 @@
                 <div class="container">
                     <!-- 都道府県リスト表示 -->
                     <div class="row">
-                        <div v-for="item in region.prefectures" :key="item" class="col-xs-4 col-4">
-                            <button :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;" :style="{ backgroundColor: region.buttonColor }">{{ item }}</button>
+                        <div v-for="(item, index) in region.prefectures" :key="index" class="col-xs-4 col-4">
+                            <div v-if="item.flg">
+                                <button @click="select_on(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;" :style="{ backgroundColor: region.buttonColor }">{{ item.name }}</button>
+                            </div>
+        
+                            <div v-if="!item.flg">
+                                <button @click="select_off(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;background-color: #CCCCCC;">{{ item.name }}</button>
+                            </div>
                         </div>
                     </div>
                 </div>
