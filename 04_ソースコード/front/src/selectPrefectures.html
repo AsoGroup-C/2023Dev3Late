@@ -22,13 +22,29 @@
                 <div class="container">
                     <!-- 都道府県リスト表示 -->
                     <div class="row">
+<<<<<<< HEAD
                         <div v-for="item in region.sample" :key="item" class="col-xs-4 col-4">
                             <button :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px":style="{ backgroundColor:region.buttonColor }">{{ item }}</button>
+=======
+                        <div v-for="(item, index) in region.prefectures" :key="index" class="col-xs-4 col-4">
+                            <div v-if="item.flg">
+                                <button @click="select_on(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;" :style="{ backgroundColor: region.buttonColor }">{{ item.name }}</button>
+                            </div>
+        
+                            <div v-if="!item.flg">
+                                <button @click="select_off(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;background-color: #CCCCCC;">{{ item.name }}</button>
+                            </div>
+>>>>>>> 976b33823da66b7bee3b81be3d60d7f00be0b34c
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <form action="result.php" method="POST">
+            <input type="hidden" name="selected" :value="selectedArray">
+            <input type="submit" value="送信">
+        </form>
 
     </div>
     <!-- bootstrap js -->
