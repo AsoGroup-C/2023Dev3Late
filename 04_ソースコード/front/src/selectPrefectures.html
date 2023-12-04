@@ -23,7 +23,7 @@
                     <!-- 都道府県リスト表示 -->
                     <div class="row">
                         <div v-for="item in region.sample" :key="item" class="col-xs-4 col-4">
-                            <button :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;">{{ item }}</button>
+                            <button :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px":style="{ backgroundColor:region.buttonColor }">{{ item }}</button>
                         </div>
                     </div>
                 </div>
