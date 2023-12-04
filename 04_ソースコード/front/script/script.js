@@ -1,45 +1,4 @@
 var app = new Vue({
-<<<<<<< HEAD
-    el: '#app',
-    data: {
-        regions:{
-          hokkaido:{
-            title:"北海道・東北",
-            sample:["北海道","青森県","秋田県","長野県","岩手県"],
-            isFaded: true,
-           buttonColor: "#FFFF00",
-          },
-          kanto:{
-            title:"関東",
-            sample:["茨城県","栃木県","群馬県","埼玉県","千葉県"],
-            isFaded: true,
-          buttonColor: "#00FFFF",
-          },
-           
-
-         
-       }
-    },
-    computed: {
-        fadeClasses() {
-          return {
-            'fade-in': this.isFaded,
-          };
-        },
-      },
-    methods:{
-        redirectTo(url){
-            window.location.href="./"+url+".html";
-        },
-        toggleFade(key) {
-          this.regions[key].isFaded = !this.regions[key].isFaded;
-      },
-      changeButtonColor() {
-        // 例えば別の色に変更するロジック
-        this.buttonColor = '#FF0000';
-      },
-  
-=======
   el: '#app',
   data: {
     regions: {
@@ -106,7 +65,6 @@ var app = new Vue({
     select_off(key,item) {
       this.regions[key].prefectures[item].flg = !this.regions[key].prefectures[item].flg;
       this.selectedArray = this.selectedArray.filter((str) => str !== this.regions[key].prefectures[item].name);
->>>>>>> 976b33823da66b7bee3b81be3d60d7f00be0b34c
     }
   },
   created() {
