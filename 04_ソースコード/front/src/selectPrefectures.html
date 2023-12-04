@@ -14,7 +14,6 @@
             <img  @click="redirectTo('index')" src="../assets/img/aicon2.png" alt="アイコン" class="img-fluid mx-auto" width="40" height="40">
         </div>
         <hr class="bg-secondary">
-
         <div v-for="(region, key) in regions" :key="key">
             <!-- エリア名表示 -->
             <div class="toggle-header" @click="toggleFade(key)">{{ region.title }}</div><br>
@@ -22,10 +21,6 @@
                 <div class="container">
                     <!-- 都道府県リスト表示 -->
                     <div class="row">
-<<<<<<< HEAD
-                        <div v-for="item in region.sample" :key="item" class="col-xs-4 col-4">
-                            <button :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px":style="{ backgroundColor:region.buttonColor }">{{ item }}</button>
-=======
                         <div v-for="(item, index) in region.prefectures" :key="index" class="col-xs-4 col-4">
                             <div v-if="item.flg">
                                 <button @click="select_on(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;" :style="{ backgroundColor: region.buttonColor }">{{ item.name }}</button>
@@ -34,7 +29,6 @@
                             <div v-if="!item.flg">
                                 <button @click="select_off(key, index)" :class="{ 'fade-element': region.isFaded }" class="btn btn-block square-button" style="margin-bottom: 30px;background-color: #CCCCCC;">{{ item.name }}</button>
                             </div>
->>>>>>> 976b33823da66b7bee3b81be3d60d7f00be0b34c
                         </div>
                     </div>
                 </div>
