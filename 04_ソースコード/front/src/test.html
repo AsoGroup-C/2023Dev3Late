@@ -1,50 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vue.js Toggle Buttons</title>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-</head>
-<body>
-
-<div id="app">
-  <div v-for="(item, index) in items" :key="index">
-    <button @click="toggleData(index)" :style="{ backgroundColor: item.buttonColor }">{{ item.buttonText }}</button>
-    <ul>
-      <li v-for="(data, dataIndex) in item.data" :key="dataIndex">{{ data }}</li>
-    </ul>
-  </div>
-</div>
-
-<script>
-new Vue({
-  el: '#app',
-  data: {
-    items: [
-      { data: [], buttonColor: 'blue', buttonText: 'Add Data' },
-      { data: [], buttonColor: 'green', buttonText: 'Add Data' },
-      // Add more items as needed
-    ],
-  },
-  methods: {
-    toggleData(index) {
-      const currentItem = this.items[index];
-      if (currentItem.data.length === 0) {
-        // データを追加
-        currentItem.data.push('New Data');
-        currentItem.buttonColor = 'red';
-        currentItem.buttonText = 'Remove Data';
-      } else {
-        // データを削除
-        currentItem.data.pop();
-        currentItem.buttonColor = 'blue';
-        currentItem.buttonText = 'Add Data';
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+      .outline {
+        text-align:center;
       }
-    },
-  },
-});
-</script>
+      .roulette {
+        display: inline-block;
+        border:1px solid #000000;
+        font-size:40px;
+        width:60px;
+      }
+    </style>
+    <script language="javascript" type="text/javascript">
+      var roulette;
 
-</body>
+      // ルーレットを開始
+      function start() {
+        roulette = setInterval(function() {
+          // 1〜99の範囲でランダムな数値を作成
+          var idx = Math.floor( Math.random() * 99 ) + 1;
+          // ルーレット
+          document.getElementById("roulette").innerHTML = idx;
+        }, 100);
+      }
+ 
+      // ルーレットを停止
+      function stop() {
+        if(roulette) {
+          clearInterval(roulette);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="outline">
+      <div class="roulette" id="roulette">1</div>
+      <br />
+      <input type="button" value="スタート" id="start" onclick="start();"/>
+      <input type="button" value="ストップ" id="stop" onclick="stop();"/>
+    </div>
+  </body>
 </html>
