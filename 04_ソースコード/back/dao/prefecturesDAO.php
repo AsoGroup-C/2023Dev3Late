@@ -36,6 +36,19 @@ class select_main
     
         return $json_array;
     }
+
+    //都道府県名からIDを索引
+    public function verify_id($name)
+    {
+        $pdo = $this->dbConnect();
+        $sql = 'SELECT prefecture_id FROM `prefectures` WHERE prefecture_name = ?';
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $name, PDO::PARAM_STR);
+        $ps->execute();
+        $prefectureId = $ps->fetch(PDO::FETCH_COLUMN);
+
+        echo json_encode($prefectureId);
+    }
     
     function get_prefecturesArray()
     {
