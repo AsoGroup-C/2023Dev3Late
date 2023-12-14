@@ -16,7 +16,7 @@
         <hr class="bg-secondary">
         <div v-for="(region, key) in regions" :key="key">
             <!-- エリア名表示 -->
-            <div class="toggle-header" @click="toggleFade(key)">{{ region.title }}</div><br>
+            <h3><div class="toggle-header" @click="toggleFade(key)">{{ region.title }}</div></h3><br>
             <div :class="{ 'fade-element': region.isFaded }">
                 <div class="container">
                     <!-- 都道府県リスト表示 -->

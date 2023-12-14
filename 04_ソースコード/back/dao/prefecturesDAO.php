@@ -64,6 +64,19 @@ class select_main
     
         print $json_array;
     }
+
+    //都道府県のおすすめスポットを取得
+    function get_attractions($id)
+    {
+        $pdo = $this->dbconnect();
+        $sql = "SELECT attraction_name,explanation,CONCAT('../assets/img/',images) AS url FROM attractions WHERE prefecture_id = ?";
+        $ps = $pdo->prepare($sql);
+        $ps->bindValue(1, $id, PDO::PARAM_INT);
+        $ps->execute();
+        $attraction_data = $ps->fetchAll();
+
+        echo json_encode($attraction_data);
+    }
 }
 
 ?>
