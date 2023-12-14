@@ -14,20 +14,25 @@
             <img  @click="redirectTo('index')" src="../assets/img/aicon2.png" alt="アイコン" class="img-fluid mx-auto" width="40" height="40">
         </div>
         <hr class="bg-secondary">
+        {{prefecture_name}}
+        {{id}}
         <h3>おススメ！</h3>
 
         <div class="container">
-            <div class="box11">
-                <div class="image-column">
-                    <img src="../assets/img/aicon2.png" alt="Image">
-                </div>
-                <div class="text-column">
-                    <h3><p>ここに文章</p></h3>
-                    <p>説明</p>
+            <div v-for="(attractions, index) in attraction_data" :key="index">
+                <div class="box11">
+                    <div class="image-column">
+                        <img :src="attractions.url" alt="Image">
+                    </div>
+                    <div class="text-column">
+                        <h3><p>{{attractions.attraction_name}}</p></h3>
+                        <p>{{attractions.explanation}}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        {{p_id}}
+
+        <button @click="redirectTo('index')">戻る</button>
         
     </div>
     <!-- bootstrap js -->
