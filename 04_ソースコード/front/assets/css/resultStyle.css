@@ -1,0 +1,24 @@
+.box11{
+    width: 75vw;  /* ビューポートの幅の50%に設定 */
+    height: 20vh; /* ビューポートの高さの30%に設定 */
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    margin-left: 5vw;
+    color: #5d627b;
+    background: white;
+    border-top: solid 5px #5d627b;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.box11 p {
+    margin: 0; 
+    padding: 0;
+}
+.container .box11{
+    display: flex;
+    margin-bottom: 56px;
+}
+.image-column img {
+    width: 85px; /* 画像の幅を指定（適切な値に変更） */
+    height: auto; /* アスペクト比を維持して高さを自動計算 */
+    margin-right: 24px;
+}

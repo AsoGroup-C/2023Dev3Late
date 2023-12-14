@@ -24,6 +24,7 @@ CREATE TABLE attractions(
     attribute_id    INT           NOT NULL,
     prefecture_id   INT           NOT NULL,
     explanation     VARCHAR(4028) NOT NULL,
+    images          VARCHAR(1024) NOT NULL,
     PRIMARY KEY (attraction_id),
     FOREIGN KEY (attribute_id) REFERENCES attributes(attribute_id),
     FOREIGN KEY (prefecture_id) REFERENCES prefectures(prefecture_id)
