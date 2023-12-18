@@ -27,3 +27,7 @@
     line-height: 50px; /* ボタン内のテキストの縦方向の中央揃えを設定 */
     border-radius: 0; /* 角丸を無効にする */
 }
+
+h3 div{
+    font-family: 'Zen Maru Gothic', serif;
+}

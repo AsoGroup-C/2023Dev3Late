@@ -231,11 +231,15 @@ function drawRouletteWithText() {
     pop();
 }
 
+function goBack() {
+    window.history.back();
+}
+
 
 
 function draw(){
     fill(255,255,255);//背景色指定
-    rect(0,0,width,height);
+    // rect(0,0,width,height);
     translate(width/2, height/2);//cavasの中心を指定
 
     fill(255,0,0);
@@ -290,7 +294,7 @@ function draw(){
                 beforeAngleSum = angleSum;
             }
             $('#result').html(nameList[result]);
-            $('#introduction').html('<a href="../src/betterAttractions.html?prefecture_id='+prefectureVerify(nameList[result])+'">'+nameList[result]+'のおすすめスポットを見る</a>');
+            $('#introduction').html('<h3><a href="../src/betterAttractions.html?prefecture_id='+prefectureVerify(nameList[result])+'">'+nameList[result]+'のおすすめスポットを見る</a></h3>');
             console.log(this.prefectureVerify(nameList[result]));
         }
         break;

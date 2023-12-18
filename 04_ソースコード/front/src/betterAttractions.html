@@ -14,9 +14,7 @@
             <img  @click="redirectTo('index')" src="../assets/img/aicon2.png" alt="アイコン" class="img-fluid mx-auto" width="40" height="40">
         </div>
         <hr class="bg-secondary">
-        {{prefecture_name}}
-        {{id}}
-        <h3>おススメ！</h3>
+        <h3 class="example3">{{prefecture_name}}のおススメポイント!</h3>
 
         <div class="container">
             <div v-for="(attractions, index) in attraction_data" :key="index">
@@ -32,9 +30,21 @@
             </div>
         </div>
 
-        <button @click="redirectTo('index')">戻る</button>
+        <div class="text-center" style="margin-bottom: 24px;"><button @click="goBack()" class="btn btn-outline-success btn-lg " style="width: 275px; height: 65px;">もう一度ルーレットを回す</button></div>
+        <div class="text-center" style="margin-bottom: 24px;"><button @click="redirectTo('index')"  class="btn btn-outline-secondary" style="width: 275px; height: 65px;">ホームに戻る</button></div>
         
     </div>
+
+    <style>
+        .example3{
+            background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 300%;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
     <!-- bootstrap js -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
