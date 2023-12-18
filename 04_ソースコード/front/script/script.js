@@ -3,7 +3,7 @@ var app = new Vue({
   data: {
     regions: {
       hokkaido: { title: "北海道・東北", prefectures: [], isFaded: true, buttonColor: "#99CCFF" },
-      kanto: { title: "関東", prefectures: [], isFaded: true, buttonColor: "#CCFFFF" },
+      kanto: { title: "関東", prefectures: [], isFaded: true, buttonColor: "#eaf6fd" },
       tyubu: { title: "中部", prefectures: [], isFaded: true, buttonColor: "#99CC99" },
       kinki: { title: "近畿", prefectures: [], isFaded: true, buttonColor: "#FFCC66" },
       tyugoku: { title: "中国", prefectures: [], isFaded: true, buttonColor: "#FF9966" },
@@ -65,7 +65,7 @@ var app = new Vue({
     select_off(key,item) {
       this.regions[key].prefectures[item].flg = !this.regions[key].prefectures[item].flg;
       this.selectedArray = this.selectedArray.filter((str) => str !== this.regions[key].prefectures[item].name);
-    }
+    },
   },
   created() {
     this.fetchPrefectures();

@@ -30,14 +30,15 @@
     </style>
     <div id="canvas"></div>
     <div class="text-center">
-        <button type="button" id="reset" onclick="reset()">リセット</button>
-        <button type="button" id="start" onclick="start()">スタート！</button>
-        <button type="button" id="stop" onclick="stop()" style="display:none;">ストップ！</button>
+        <button type="button" id="reset" class="btn btn-outline-dark" onclick="reset()">リセット</button>
+        <button type="button" id="start" class="btn btn-outline-success" onclick="start()">スタート！</button>
+        <button type="button" id="stop" class="btn btn-outline-danger" onclick="stop()" style="display:none;">ストップ！</button>
     </div>
 
     <h2 class="text-center">結果</h2>
     <p id="result">????</p>
     <div id="introduction" class="text-center"></div>
+    <div class="text-center text-center fixed-bottom" style="margin-bottom: 24px;"><button onclick="goBack()" class="btn btn-outline-success btn-lg " style="width: 275px; height: 65px;">選択画面に戻る</button></div>
 
     <div id="table" style="display: none;">
         <h2>ルーレット設定</h2>
@@ -77,6 +78,9 @@
         font-size: 40px;
         font-weight: bold;
         text-align: center;
+        background: linear-gradient(to right,#e60000,#f39800,#fff100,#009944,#0068b7,#1d2088,#920783);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     </style>
 
